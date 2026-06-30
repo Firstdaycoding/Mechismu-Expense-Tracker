@@ -16,8 +16,8 @@ CORS(app, origins=FRONTEND_URL)
 MASTER_PASSWORD = os.environ.get("MASTER_PASSWORD")
 
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
-GITHUB_REPO = os.environ.get("GITHUB_REPO")       # Format: "username/repo"
-FILE_PATH = os.environ.get("GITHUB_FILE_PATH")     # e.g., "data.json"
+GITHUB_REPO = os.environ.get("GITHUB_REPO")
+FILE_PATH = os.environ.get("GITHUB_FILE_PATH")
 
 API_URL = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{FILE_PATH}"
 HEADERS = {
