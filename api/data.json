@@ -2,7 +2,7 @@
   "global": {
     "currentFunding": 188847,
     "expectedTotal": 894000,
-    "spent": 114000
+    "spent": 119000
   },
   "divisions": {
     "battery": {
@@ -117,7 +117,7 @@
           "date": "2026-06-06",
           "desc": "Brake pedals",
           "id": "ST-04",
-          "status": "PENDING",
+          "status": "PAID",
           "vendor": "Aluminium Works"
         },
         {
