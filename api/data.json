@@ -2,7 +2,7 @@
   "global": {
     "currentFunding": 188847,
     "expectedTotal": 894000,
-    "spent": 114000
+    "spent": 94000
   },
   "divisions": {
     "battery": {
@@ -101,7 +101,7 @@
           "date": "2026-06-03",
           "desc": "Bodyworks",
           "id": "ST-02",
-          "status": "PAID",
+          "status": "PENDING",
           "vendor": "Fibreglass and Epoxy Supply"
         },
         {
