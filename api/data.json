@@ -29,7 +29,16 @@
     },
     "other": {
       "expectedCost": 204000,
-      "ledger": [],
+      "ledger": [
+        {
+          "date": "2026-07-08",
+          "desc": "Competittion Registration Fees",
+          "vendor": "Formula Bharat",
+          "amount": 94400,
+          "status": "PENDING",
+          "id": "OT-01"
+        }
+      ],
       "title": "Other"
     },
     "safety": {
