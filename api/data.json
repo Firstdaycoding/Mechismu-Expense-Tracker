@@ -31,14 +31,6 @@
       "expectedCost": 204000,
       "ledger": [
         {
-          "amount": 110000,
-          "date": "2026-06-22",
-          "desc": "Team Apparel & Decals",
-          "id": "OT-02",
-          "status": "PENDING",
-          "vendor": "Local Print Shop"
-        },
-        {
           "date": "2026-07-08",
           "desc": "Competittion Registration Fees",
           "vendor": "Formula Bharat",
