@@ -2,7 +2,7 @@
   "global": {
     "currentFunding": 188847,
     "expectedTotal": 894000,
-    "spent": 119400
+    "spent": 129400
   },
   "divisions": {
     "battery": {
@@ -43,7 +43,7 @@
           "desc": "ESO Registration",
           "vendor": "Formula Bharat",
           "amount": 10000,
-          "status": "PENDING",
+          "status": "PAID",
           "id": "OT-02"
         }
       ],
