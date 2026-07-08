@@ -121,14 +121,6 @@
           "vendor": "Aluminium Works"
         },
         {
-          "amount": 30000,
-          "date": "2026-06-07",
-          "desc": "TSAC (Structure & Insulation)",
-          "id": "ST-05",
-          "status": "PENDING",
-          "vendor": "Steel Sheets & Insulation"
-        },
-        {
           "amount": 5000,
           "date": "2026-06-08",
           "desc": "Drive-shafts",
