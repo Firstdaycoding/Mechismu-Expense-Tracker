@@ -2,7 +2,7 @@
   "global": {
     "currentFunding": 188847,
     "expectedTotal": 894000,
-    "spent": 104400
+    "spent": 124400
   },
   "divisions": {
     "battery": {
@@ -31,20 +31,20 @@
       "expectedCost": 204000,
       "ledger": [
         {
+          "amount": 94400,
           "date": "2026-07-08",
           "desc": "Competittion Registration Fees",
-          "vendor": "Formula Bharat",
-          "amount": 94400,
+          "id": "OT-01",
           "status": "PAID",
-          "id": "OT-01"
+          "vendor": "Formula Bharat"
         },
         {
+          "amount": 10000,
           "date": "2026-07-08",
           "desc": "ESO Registration",
-          "vendor": "Formula Bharat",
-          "amount": 10000,
+          "id": "OT-02",
           "status": "PAID",
-          "id": "OT-02"
+          "vendor": "Formula Bharat"
         }
       ],
       "title": "Other"
@@ -101,7 +101,7 @@
           "date": "2026-06-03",
           "desc": "Bodyworks",
           "id": "ST-02",
-          "status": "PENDING",
+          "status": "PAID",
           "vendor": "Fibreglass and Epoxy Supply"
         },
         {
