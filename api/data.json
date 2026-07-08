@@ -37,6 +37,14 @@
           "id": "OT-02",
           "status": "PENDING",
           "vendor": "Local Print Shop"
+        },
+        {
+          "date": "2026-07-08",
+          "desc": "Competittion Registration Fees",
+          "vendor": "Formula Bharat",
+          "amount": 94,
+          "status": "PENDING",
+          "id": "OT-02"
         }
       ],
       "title": "Other"
