@@ -2,7 +2,7 @@
   "global": {
     "currentFunding": 188847,
     "expectedTotal": 894000,
-    "spent": 25000
+    "spent": 119400
   },
   "divisions": {
     "battery": {
@@ -35,7 +35,7 @@
           "desc": "Competittion Registration Fees",
           "vendor": "Formula Bharat",
           "amount": 94400,
-          "status": "PENDING",
+          "status": "PAID",
           "id": "OT-01"
         }
       ],
