@@ -31,14 +31,6 @@
       "expectedCost": 204000,
       "ledger": [
         {
-          "amount": 94000,
-          "date": "2026-05-20",
-          "desc": "Competition Registration Fee",
-          "id": "OT-01",
-          "status": "PENDING",
-          "vendor": "Formula Bharat"
-        },
-        {
           "amount": 110000,
           "date": "2026-06-22",
           "desc": "Team Apparel & Decals",
