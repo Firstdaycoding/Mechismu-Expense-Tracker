@@ -119,6 +119,14 @@
           "id": "ST-04",
           "status": "PENDING",
           "vendor": "Aluminium Works"
+        },
+        {
+          "date": "2026-07-08",
+          "desc": "Bodyworks",
+          "vendor": "Fibreglass and Epoxy supply",
+          "amount": 40000,
+          "status": "PENDING",
+          "id": "ST-04"
         }
       ],
       "title": "Structures"
