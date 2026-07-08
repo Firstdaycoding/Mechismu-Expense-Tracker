@@ -119,14 +119,6 @@
           "id": "ST-04",
           "status": "PENDING",
           "vendor": "Aluminium Works"
-        },
-        {
-          "amount": 5000,
-          "date": "2026-06-08",
-          "desc": "Drive-shafts",
-          "id": "ST-06",
-          "status": "PENDING",
-          "vendor": "OEM Parts Dealer"
         }
       ],
       "title": "Structures"
