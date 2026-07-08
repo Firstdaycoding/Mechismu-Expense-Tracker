@@ -97,14 +97,6 @@
       "expectedCost": 120000,
       "ledger": [
         {
-          "amount": 20000,
-          "date": "2026-06-03",
-          "desc": "Bodyworks",
-          "id": "ST-02",
-          "status": "PENDING",
-          "vendor": "Fibreglass and Epoxy Supply"
-        },
-        {
           "amount": 10000,
           "date": "2026-06-05",
           "desc": "Fasteners",
