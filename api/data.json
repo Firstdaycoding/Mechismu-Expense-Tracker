@@ -37,6 +37,14 @@
           "amount": 94400,
           "status": "PAID",
           "id": "OT-01"
+        },
+        {
+          "date": "2026-07-08",
+          "desc": "ESO Registration",
+          "vendor": "Formula Bharat",
+          "amount": 10000,
+          "status": "PENDING",
+          "id": "OT-02"
         }
       ],
       "title": "Other"
