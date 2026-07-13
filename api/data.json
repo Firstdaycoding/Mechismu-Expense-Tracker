@@ -105,14 +105,6 @@
           "vendor": "Misc Hardware"
         },
         {
-          "amount": 40000,
-          "date": "2026-07-08",
-          "desc": "Bodyworks",
-          "id": "ST-04",
-          "status": "PENDING",
-          "vendor": "Fibreglass and Epoxy supply"
-        },
-        {
           "date": "2026-07-13",
           "desc": "Chassis Pipes",
           "vendor": "-",
