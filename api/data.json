@@ -119,6 +119,14 @@
           "amount": 32,
           "status": "PENDING",
           "id": "ST-04"
+        },
+        {
+          "date": "2026-07-13",
+          "desc": "Brake Assembly",
+          "vendor": "-",
+          "amount": 20000,
+          "status": "PENDING",
+          "id": "ST-04"
         }
       ],
       "title": "Structures"
