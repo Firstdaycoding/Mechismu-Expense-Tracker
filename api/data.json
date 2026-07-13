@@ -105,14 +105,6 @@
           "vendor": "Misc Hardware"
         },
         {
-          "amount": 5000,
-          "date": "2026-06-06",
-          "desc": "Brake pedals",
-          "id": "ST-04",
-          "status": "PENDING",
-          "vendor": "Aluminium Works"
-        },
-        {
           "amount": 40000,
           "date": "2026-07-08",
           "desc": "Bodyworks",
