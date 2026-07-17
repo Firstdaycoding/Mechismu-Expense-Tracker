@@ -112,12 +112,20 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
         // Pushes the ENTIRE current appState (global + divisions) to the
         // backend, which overwrites data.json on GitHub in one commit.
         async function persistFullState(auditMessage = "") {
+            // HTTP header values must be ISO-8859-1/ASCII only. Our audit
+            // messages go through formatINR(), which prepends the ₹ symbol
+            // (U+20B9) — outside that range — so the raw string can't be
+            // set as a header and fetch() throws before the request is
+            // even sent. Percent-encode it so it's always ASCII-safe;
+            // decode with decodeURIComponent() on the backend if you need
+            // the original text (e.g. for commit messages).
+            const safeAuditMessage = encodeURIComponent(auditMessage);
             const res = await fetch(`${API_BASE_URL}/data`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'X-Admin-Password': authState.password || '',
-                    'X-Audit-Message': auditMessage
+                    'X-Audit-Message': safeAuditMessage
                 },
                 body: JSON.stringify({
                     global: appState.global,
