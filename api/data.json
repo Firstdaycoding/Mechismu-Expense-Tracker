@@ -2,7 +2,7 @@
   "global": {
     "currentFunding": 188847,
     "expectedTotal": 894000,
-    "spent": 144400
+    "spent": 129400
   },
   "divisions": {
     "battery": {
@@ -75,7 +75,7 @@
       "expectedCost": 62000,
       "ledger": [
         {
-          "amount": 40000,
+          "amount": 25000,
           "date": "2026-06-10",
           "desc": "Steering Rack",
           "id": "SS-01",
