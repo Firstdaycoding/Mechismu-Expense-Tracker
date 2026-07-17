@@ -1,7 +1,7 @@
 {
   "global": {
     "currentFunding": 1888470,
-    "expectedTotal": 89400,
+    "expectedTotal": 894000,
     "spent": 129400
   },
   "divisions": {
@@ -100,7 +100,7 @@
           "amount": 10000,
           "date": "2026-06-05",
           "desc": "Fasteners",
-          "id": "ST-01",
+          "id": "ST-03",
           "status": "PENDING",
           "vendor": "Misc Hardware"
         },
