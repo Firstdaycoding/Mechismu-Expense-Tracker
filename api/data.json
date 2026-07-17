@@ -111,6 +111,14 @@
           "amount": 37000,
           "status": "PENDING",
           "id": "ST-02"
+        },
+        {
+          "date": "2026-07-17",
+          "desc": "BodyWorks",
+          "vendor": "Vendor",
+          "amount": 40000,
+          "status": "PENDING",
+          "id": "ST-03"
         }
       ],
       "title": "Structures"
