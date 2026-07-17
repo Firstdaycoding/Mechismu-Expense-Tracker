@@ -103,14 +103,6 @@
           "id": "ST-03",
           "status": "PENDING",
           "vendor": "Misc Hardware"
-        },
-        {
-          "amount": 32000,
-          "date": "2026-07-13",
-          "desc": "Chassis Pipes",
-          "id": "ST-04",
-          "status": "PENDING",
-          "vendor": "-"
         }
       ],
       "title": "Structures"
