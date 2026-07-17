@@ -622,7 +622,8 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
             let rowsHTML = '';
             logs.forEach((entry) => {
                 const sha = entry.sha ? String(entry.sha).slice(0, 7) : '—';
-                const message = entry.message || decodeURIComponent(entry.auditMessage) || '(no message)';
+                let message = entry.message || entry.auditMessage || '(no message)';
+                message = decodeURIComponent(message);
                 const author = entry.author || entry.committer || 'unknown';
                 const date = entry.date
                     ? new Date(entry.date).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' })
