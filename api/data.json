@@ -2,7 +2,7 @@
   "global": {
     "currentFunding": 188847,
     "expectedTotal": 894000,
-    "spent": 104400
+    "spent": 114400
   },
   "divisions": {
     "battery": {
@@ -101,32 +101,32 @@
           "date": "2026-06-05",
           "desc": "Fasteners",
           "id": "ST-03",
-          "status": "PENDING",
+          "status": "PAID",
           "vendor": "Misc Hardware"
         },
         {
+          "amount": 37000,
           "date": "2026-07-17",
           "desc": "Chassis pipes",
-          "vendor": "vendor",
-          "amount": 37000,
+          "id": "ST-02",
           "status": "PENDING",
-          "id": "ST-02"
+          "vendor": "vendor"
         },
         {
+          "amount": 40000,
           "date": "2026-07-17",
           "desc": "BodyWorks",
-          "vendor": "Vendor",
-          "amount": 40000,
+          "id": "ST-03",
           "status": "PENDING",
-          "id": "ST-03"
+          "vendor": "Vendor"
         },
         {
+          "amount": 20000,
           "date": "2026-07-17",
           "desc": "Brake Assembly",
-          "vendor": "Vendor",
-          "amount": 20000,
+          "id": "ST-04",
           "status": "PENDING",
-          "id": "ST-04"
+          "vendor": "Vendor"
         }
       ],
       "title": "Structures"
