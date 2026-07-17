@@ -1,8 +1,8 @@
 {
   "global": {
-    "currentFunding": 188847,
-    "expectedTotal": 894000,
-    "spent": 129400
+    "currentFunding": 1888470,
+    "expectedTotal": 89400,
+    "spent": 169400
   },
   "divisions": {
     "battery": {
@@ -100,7 +100,7 @@
           "amount": 10000,
           "date": "2026-06-05",
           "desc": "Fasteners",
-          "id": "ST-03",
+          "id": "ST-01",
           "status": "PENDING",
           "vendor": "Misc Hardware"
         },
@@ -117,7 +117,7 @@
           "date": "2026-07-17",
           "desc": "BodyWorks",
           "id": "ST-03",
-          "status": "PENDING",
+          "status": "PAID",
           "vendor": "Vendor"
         },
         {
