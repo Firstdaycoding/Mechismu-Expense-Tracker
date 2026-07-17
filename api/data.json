@@ -1,53 +1,135 @@
 {
   "global": {
-    "expectedTotal": 894000,
     "currentFunding": 188847,
-    "spent": 94000
+    "expectedTotal": 894000,
+    "spent": 129400
   },
   "divisions": {
-    "structures": {
-      "title": "Structures",
-      "expectedCost": 120000,
-      "ledger": [
-        { "id": "ST-01", "date": "2026-06-01", "desc": "Chassis tubes", "vendor": "Steel Tubes Co.", "amount": 50000, "status": "PENDING" },
-        { "id": "ST-02", "date": "2026-06-03", "desc": "Bodyworks", "vendor": "Fibreglass and Epoxy Supply", "amount": 20000, "status": "PENDING" },
-        { "id": "ST-03", "date": "2026-06-05", "desc": "Fasteners", "vendor": "Misc Hardware", "amount": 10000, "status": "PENDING" },
-        { "id": "ST-04", "date": "2026-06-06", "desc": "Brake pedals", "vendor": "Aluminium Works", "amount": 5000, "status": "PENDING" },
-        { "id": "ST-05", "date": "2026-06-07", "desc": "TSAC (Structure & Insulation)", "vendor": "Steel Sheets & Insulation", "amount": 30000, "status": "PENDING" },
-        { "id": "ST-06", "date": "2026-06-08", "desc": "Drive-shafts", "vendor": "OEM Parts Dealer", "amount": 5000, "status": "PENDING" }
-      ]
-    },
-    "steering": {
-      "title": "Steering & Suspension",
-      "expectedCost": 62000,
-      "ledger": [
-        { "id": "SS-01", "date": "2026-06-10", "desc": "Steering Rack", "vendor": "Custom Machined", "amount": 40000, "status": "PENDING" },
-        { "id": "SS-02", "date": "2026-06-12", "desc": "Damper Fluid & Seals", "vendor": "RaceKit", "amount": 22000, "status": "PENDING" }
-      ]
-    },
-    "safety": {
-      "title": "Safety Electronics",
-      "expectedCost": 121000,
-      "ledger": [
-        { "id": "SA-01", "date": "2026-06-14", "desc": "Shutdown Buttons", "vendor": "Element14", "amount": 21000, "status": "PENDING" },
-        { "id": "SA-02", "date": "2026-06-15", "desc": "Insulation Monitoring Device", "vendor": "Bender", "amount": 100000, "status": "PENDING" }
-      ]
-    },
     "battery": {
-      "title": "Battery",
       "expectedCost": 387000,
       "ledger": [
-        { "id": "BA-01", "date": "2026-06-18", "desc": "LiFePO4 Cells", "vendor": "Lithium Store", "amount": 300000, "status": "PENDING" },
-        { "id": "BA-02", "date": "2026-06-19", "desc": "BMS Controller Board", "vendor": "Orion BMS", "amount": 87000, "status": "PENDING" }
-      ]
+        {
+          "amount": 300000,
+          "date": "2026-06-18",
+          "desc": "LiFePO4 Cells",
+          "id": "BA-01",
+          "status": "PENDING",
+          "vendor": "Lithium Store"
+        },
+        {
+          "amount": 87000,
+          "date": "2026-06-19",
+          "desc": "BMS Controller Board",
+          "id": "BA-02",
+          "status": "PENDING",
+          "vendor": "Orion BMS"
+        }
+      ],
+      "title": "Battery"
     },
     "other": {
-      "title": "Other",
       "expectedCost": 204000,
       "ledger": [
-        { "id": "OT-01", "date": "2026-05-20", "desc": "Competition Registration Fee", "vendor": "Formula Bharat", "amount": 94000, "status": "PAID" },
-        { "id": "OT-02", "date": "2026-06-22", "desc": "Team Apparel & Decals", "vendor": "Local Print Shop", "amount": 110000, "status": "PENDING" }
-      ]
+        {
+          "amount": 94400,
+          "date": "2026-07-08",
+          "desc": "Competittion Registration Fees",
+          "id": "OT-01",
+          "status": "PAID",
+          "vendor": "Formula Bharat"
+        },
+        {
+          "amount": 10000,
+          "date": "2026-07-08",
+          "desc": "ESO Registration",
+          "id": "OT-02",
+          "status": "PAID",
+          "vendor": "Formula Bharat"
+        }
+      ],
+      "title": "Other"
+    },
+    "safety": {
+      "expectedCost": 121000,
+      "ledger": [
+        {
+          "amount": 21000,
+          "date": "2026-06-14",
+          "desc": "Shutdown Buttons",
+          "id": "SA-01",
+          "status": "PENDING",
+          "vendor": "Element14"
+        },
+        {
+          "amount": 100000,
+          "date": "2026-06-15",
+          "desc": "Insulation Monitoring Device",
+          "id": "SA-02",
+          "status": "PENDING",
+          "vendor": "Bender"
+        }
+      ],
+      "title": "Safety Electronics"
+    },
+    "steering": {
+      "expectedCost": 62000,
+      "ledger": [
+        {
+          "amount": 25000,
+          "date": "2026-06-10",
+          "desc": "Steering Rack",
+          "id": "SS-01",
+          "status": "PAID",
+          "vendor": "Custom Machine"
+        },
+        {
+          "amount": 22000,
+          "date": "2026-06-12",
+          "desc": "Damper Fluid & Seals",
+          "id": "SS-02",
+          "status": "PENDING",
+          "vendor": "RaceKit"
+        }
+      ],
+      "title": "Steering & Suspension"
+    },
+    "structures": {
+      "expectedCost": 120000,
+      "ledger": [
+        {
+          "amount": 10000,
+          "date": "2026-06-05",
+          "desc": "Fasteners",
+          "id": "ST-01",
+          "status": "PENDING",
+          "vendor": "Misc Hardware"
+        },
+        {
+          "amount": 37000,
+          "date": "2026-07-17",
+          "desc": "Chassis pipes",
+          "id": "ST-02",
+          "status": "PENDING",
+          "vendor": "vendor"
+        },
+        {
+          "amount": 40000,
+          "date": "2026-07-17",
+          "desc": "BodyWorks",
+          "id": "ST-03",
+          "status": "PENDING",
+          "vendor": "Vendor"
+        },
+        {
+          "amount": 20000,
+          "date": "2026-07-17",
+          "desc": "Brake Assembly",
+          "id": "ST-04",
+          "status": "PENDING",
+          "vendor": "Vendor"
+        }
+      ],
+      "title": "Structures"
     }
   }
 }
