@@ -2,7 +2,7 @@
   "global": {
     "currentFunding": 188847,
     "expectedTotal": 894000,
-    "spent": 104400
+    "spent": 204400
   },
   "divisions": {
     "battery": {
@@ -65,7 +65,7 @@
           "date": "2026-06-15",
           "desc": "Insulation Monitoring Device",
           "id": "SA-02",
-          "status": "PENDING",
+          "status": "PAID",
           "vendor": "Bender"
         }
       ],
