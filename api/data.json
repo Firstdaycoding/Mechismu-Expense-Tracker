@@ -53,7 +53,7 @@
       "expectedCost": 121000,
       "ledger": [
         {
-          "amount": 210000,
+          "amount": 21000,
           "date": "2026-06-14",
           "desc": "Shutdown Buttons",
           "id": "SA-01",
