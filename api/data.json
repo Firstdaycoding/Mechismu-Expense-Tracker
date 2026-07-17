@@ -2,7 +2,7 @@
   "global": {
     "currentFunding": 188847,
     "expectedTotal": 894000,
-    "spent": 114400
+    "spent": 104400
   },
   "divisions": {
     "battery": {
@@ -101,7 +101,7 @@
           "date": "2026-06-05",
           "desc": "Fasteners",
           "id": "ST-03",
-          "status": "PAID",
+          "status": "PENDING",
           "vendor": "Misc Hardware"
         },
         {
