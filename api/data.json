@@ -2,7 +2,7 @@
   "global": {
     "currentFunding": 1888470,
     "expectedTotal": 89400,
-    "spent": 169400
+    "spent": 129400
   },
   "divisions": {
     "battery": {
@@ -117,7 +117,7 @@
           "date": "2026-07-17",
           "desc": "BodyWorks",
           "id": "ST-03",
-          "status": "PAID",
+          "status": "PENDING",
           "vendor": "Vendor"
         },
         {
