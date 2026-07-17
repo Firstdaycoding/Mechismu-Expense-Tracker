@@ -2,7 +2,7 @@
   "global": {
     "currentFunding": 188846,
     "expectedTotal": 894000,
-    "spent": 129400
+    "spent": 429400
   },
   "divisions": {
     "battery": {
@@ -13,7 +13,7 @@
           "date": "2026-06-18",
           "desc": "LiFePO4 Cells",
           "id": "BA-01",
-          "status": "PENDING",
+          "status": "PAID",
           "vendor": "Lithium Store"
         },
         {
