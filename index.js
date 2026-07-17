@@ -2,6 +2,56 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
   ? "http://127.0.0.1:5000/api" 
   : window.location.origin + "/api";
 
+//Only renders when Backend fails to send data
+        const DEFAULT_DATA = {
+            global: { expectedTotal: 894000, currentFunding: 188847, spent: 94000 },
+            divisions: {
+                structures: {
+                    title: "Structures",
+                    expectedCost: 120000,
+                    ledger: [
+                        { id: "ST-01", date: "2026-06-01", desc: "Chassis tubes", vendor: "Steel Tubes Co.", amount: 50000, status: "PENDING" },
+                        { id: "ST-02", date: "2026-06-03", desc: "Bodyworks", vendor: "Fibreglass and Epoxy Supply", amount: 20000, status: "PENDING" },
+                        { id: "ST-03", date: "2026-06-05", desc: "Fasteners", vendor: "Misc Hardware", amount: 10000, status: "PENDING" },
+                        { id: "ST-04", date: "2026-06-06", desc: "Brake pedals", vendor: "Aluminium Works", amount: 5000, status: "PENDING" },
+                        { id: "ST-05", date: "2026-06-07", desc: "TSAC (Structure & Insulation)", vendor: "Steel Sheets & Insulation", amount: 30000, status: "PENDING" },
+                        { id: "ST-06", date: "2026-06-08", desc: "Drive-shafts", vendor: "OEM Parts Dealer", amount: 5000, status: "PENDING" }
+                    ]
+                },
+                steering: {
+                    title: "Steering & Suspension",
+                    expectedCost: 62000,
+                    ledger: [
+                        { id: "SS-01", date: "2026-06-10", desc: "Steering Rack", vendor: "Custom Machined", amount: 40000, status: "PENDING" },
+                        { id: "SS-02", date: "2026-06-12", desc: "Damper Fluid & Seals", vendor: "RaceKit", amount: 22000, status: "PENDING" }
+                    ]
+                },
+                safety: {
+                    title: "Safety Electronics",
+                    expectedCost: 121000,
+                    ledger: [
+                        { id: "SA-01", date: "2026-06-14", desc: "Shutdown Buttons", vendor: "Element14", amount: 21000, status: "PENDING" },
+                        { id: "SA-02", date: "2026-06-15", desc: "Insulation Monitoring Device", vendor: "Bender", amount: 100000, status: "PENDING" }
+                    ]
+                },
+                battery: {
+                    title: "Battery",
+                    expectedCost: 387000,
+                    ledger: [
+                        { id: "BA-01", date: "2026-06-18", desc: "LiFePO4 Cells", vendor: "Lithium Store", amount: 300000, status: "PENDING" },
+                        { id: "BA-02", date: "2026-06-19", desc: "BMS Controller Board", vendor: "Orion BMS", amount: 87000, status: "PENDING" }
+                    ]
+                },
+                other: {
+                    title: "Other",
+                    expectedCost: 204000,
+                    ledger: [
+                        { id: "OT-01", date: "2026-05-20", desc: "Competition Registration Fee", vendor: "Formula Bharat", amount: 94000, status: "PAID" },
+                        { id: "OT-02", date: "2026-06-22", desc: "Team Apparel & Decals", vendor: "Local Print Shop", amount: 110000, status: "PENDING" }
+                    ]
+                }
+            }
+        };
 
         const appState = {
             currentTab: 'overview',
@@ -16,6 +66,11 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
             password: null,
             isAdmin: false
         };
+
+        // Cache of the last fetched commit log entries, so we don't
+        // re-fetch every single time the admin flips back to the tab
+        // within the same session (a manual refresh button re-fetches).
+        let logsCache = null;
 
         function formatINR(amount) {
             return '₹' + Number(amount || 0).toLocaleString('en-IN');
@@ -56,12 +111,13 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
 
         // Pushes the ENTIRE current appState (global + divisions) to the
         // backend, which overwrites data.json on GitHub in one commit.
-        async function persistFullState() {
+        async function persistFullState(auditMessage = "") {
             const res = await fetch(`${API_BASE_URL}/data`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-Admin-Password': authState.password || ''
+                    'X-Admin-Password': authState.password || '',
+                    'X-Audit-Message': auditMessage
                 },
                 body: JSON.stringify({
                     global: appState.global,
@@ -98,7 +154,16 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
             authState.password = null;
             authState.isAdmin = false;
             localStorage.removeItem('admin_password');
+            logsCache = null;
+
+            // A non-admin has no business staying on the logs tab —
+            // bounce back to overview before re-rendering anything.
+            if (appState.currentTab === 'logs') {
+                appState.currentTab = 'overview';
+            }
+
             renderAuthZone();
+            updateLogsTabVisibility();
             rerenderCurrentView();
             showToast('Logged out.');
         }
@@ -134,6 +199,18 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
                     </button>
                 `;
             }
+        }
+
+        // Shows the "Logs" nav button only while an admin session is
+        // active. Assumes a nav button with id="tab-logs" exists in the
+        // markup (hidden by default, e.g. class="hidden" or
+        // style="display:none"). Non-admins should never see or be able
+        // to reach this tab.
+        function updateLogsTabVisibility() {
+            const logsBtn = document.getElementById('tab-logs');
+            if (!logsBtn) return;
+            logsBtn.classList.toggle('hidden', !authState.isAdmin);
+            logsBtn.style.display = authState.isAdmin ? '' : 'none';
         }
 
         function openLoginModal() {
@@ -177,6 +254,7 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
                 await attemptLogin(passcode);
                 closeLoginModal();
                 renderAuthZone();
+                updateLogsTabVisibility();
                 rerenderCurrentView();
                 showToast('Logged in as admin.');
             } catch (err) {
@@ -189,6 +267,14 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
            NAVIGATION
            --------------------------------------------------------- */
         function switchTab(tabId) {
+            // Logs is admin-only real estate. If a non-admin somehow
+            // triggers this (stale DOM, direct console call, etc.) just
+            // refuse and stay put instead of rendering anything.
+            if (tabId === 'logs' && !authState.isAdmin) {
+                showToast('Admin login required to view logs.', true);
+                return;
+            }
+
             appState.currentTab = tabId;
 
             document.querySelectorAll('nav button').forEach(btn => {
@@ -203,6 +289,16 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
         function rerenderCurrentView() {
             if (appState.currentTab === 'overview') {
                 renderOverview();
+            } else if (appState.currentTab === 'logs') {
+                // Guard again here too — covers cases where appState.currentTab
+                // was left as 'logs' (e.g. stale state) but admin status
+                // changed since the last render.
+                if (!authState.isAdmin) {
+                    appState.currentTab = 'overview';
+                    renderOverview();
+                    return;
+                }
+                renderLogsView();
             } else {
                 renderDivisionView(appState.currentTab);
             }
@@ -246,22 +342,35 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
                 `;
             }
 
+            const editExpectedBtn = authState.isAdmin
+                ? `<button class="edit-icon-btn" onclick="openGlobalEditModal('expectedTotal')" title="Edit Expected Total Cost"><i class="fa-solid fa-pen"></i></button>`
+                : '';
+            const editFundingBtn = authState.isAdmin
+                ? `<button class="edit-icon-btn" onclick="openGlobalEditModal('currentFunding')" title="Edit Current Funding"><i class="fa-solid fa-pen"></i></button>`
+                : '';
+            const editAvailableBtn = authState.isAdmin
+                ? `<button class="edit-icon-btn" onclick="openGlobalEditModal('currentFunding')" title="Edit Current Funding (adjusts available funds)"><i class="fa-solid fa-pen"></i></button>`
+                : '';
+
             container.innerHTML = `
                 <div class="cards-grid-3">
                     <div class="dashboard-card">
                         <span class="stat-label-tiny">Expected Total Cost</span>
                         <h2 class="card-title-macro">${formatINR(appState.global.expectedTotal)}</h2>
                         <span class="card-subtext-muted">Across ${Object.keys(appState.divisions).length} divisions</span>
+                        ${editExpectedBtn}
                     </div>
                     <div class="dashboard-card">
                         <span class="stat-label-tiny">Current Funding</span>
                         <h2 class="card-title-macro-green">${formatINR(appState.global.currentFunding)}</h2>
                         <span class="card-subtext-muted">${fundingPercent}% of expected cost</span>
+                        ${editFundingBtn}
                     </div>
                     <div class="dashboard-card">
                         <span class="stat-label-tiny">Funds Available</span>
                         <h2 class="card-title-macro">${formatINR(fundsAvailable)}</h2>
                         <span class="card-subtext-muted">Funding minus paid out (${formatINR(appState.global.spent)} spent)</span>
+                        ${editAvailableBtn}
                     </div>
                 </div>
 
@@ -337,7 +446,10 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
                         : `<span class="status-badge ${badgeClass}">${item.status}</span>`;
 
                     const actionsCell = authState.isAdmin
-                        ? `<button onclick="deleteLedgerItem('${divKey}', '${item.id}')" class="btn-trash" title="Delete entry"><i class="fa-solid fa-trash-can text-xs"></i></button>`
+                        ? `<div class="actions-wrapper">
+                               <button onclick="promptEditItem('${divKey}', '${item.id}')" class="btn-edit" title="Edit entry"><i class="fa-solid fa-pen text-xs"></i></button>
+                               <button onclick="deleteLedgerItem('${divKey}', '${item.id}')" class="btn-trash" title="Delete entry"><i class="fa-solid fa-trash-can text-xs"></i></button>
+                           </div>`
                         : `<span class="no-actions">—</span>`;
 
                     rowHTML += `
@@ -429,32 +541,270 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
         }
 
         /* ---------------------------------------------------------
+           LOGS VIEW (admin-only — commit / audit history)
+           --------------------------------------------------------- */
+        // Fetches commit/audit logs from the backend and renders them.
+        // Assumes GET ${API_BASE_URL}/logs, gated by the same
+        // X-Admin-Password header used for writes, returning JSON like:
+        //   [{ sha, message, author, date, url }, ...]
+        // ordered newest-first. Adjust field names below if your
+        // backend's shape differs.
+        async function renderLogsView(forceRefresh = false) {
+            if (!authState.isAdmin) {
+                // Safety net — should never be reachable via the UI since
+                // switchTab() and rerenderCurrentView() already guard this,
+                // but never render admin-only data without a live check.
+                appState.currentTab = 'overview';
+                renderOverview();
+                return;
+            }
+
+            const container = document.getElementById('view-container');
+
+            container.innerHTML = `
+                <div class="table-card-wrapper">
+                    <div class="table-top-bar">
+                        <h3><i class="fa-solid fa-clock-rotate-left"></i> Commit Logs</h3>
+                        <button class="btn-add-action" onclick="renderLogsView(true)">
+                            <i class="fa-solid fa-rotate"></i> Refresh
+                        </button>
+                    </div>
+                    <div id="logs-body-container">
+                        <div class="loading-msg">Loading commit history…</div>
+                    </div>
+                </div>
+            `;
+
+            if (logsCache && !forceRefresh) {
+                renderLogsList(logsCache);
+                return;
+            }
+
+            try {
+                const res = await fetch(`${API_BASE_URL}/logs`, {
+                    method: 'GET',
+                    headers: {
+                        'X-Admin-Password': authState.password || ''
+                    }
+                });
+                if (!res.ok) throw new Error(`Server returned ${res.status}`);
+
+                const logs = await res.json();
+                logsCache = Array.isArray(logs) ? logs : (logs.commits || []);
+                renderLogsList(logsCache);
+            } catch (err) {
+                console.error('Failed to fetch commit logs:', err);
+                const logsBody = document.getElementById('logs-body-container');
+                if (logsBody) {
+                    logsBody.innerHTML = `<div class="loading-msg" style="color: var(--accent-red);">Could not load commit logs from server.</div>`;
+                }
+                showToast('Could not load commit logs.', true);
+            }
+        }
+
+        function renderLogsList(logs) {
+            const logsBody = document.getElementById('logs-body-container');
+            if (!logsBody) return;
+
+            if (!logs || logs.length === 0) {
+                logsBody.innerHTML = `<div class="loading-msg">No commit history yet.</div>`;
+                return;
+            }
+
+            let rowsHTML = '';
+            logs.forEach((entry) => {
+                const sha = entry.sha ? String(entry.sha).slice(0, 7) : '—';
+                const message = entry.message || entry.auditMessage || '(no message)';
+                const author = entry.author || entry.committer || 'unknown';
+                const date = entry.date
+                    ? new Date(entry.date).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' })
+                    : '—';
+
+                const shaCell = entry.url
+                    ? `<a href="${entry.url}" target="_blank" rel="noopener noreferrer" class="td-id" style="text-decoration: underline;">${sha}</a>`
+                    : `<span class="td-id">${sha}</span>`;
+
+                rowsHTML += `
+                    <tr>
+                        <td>${shaCell}</td>
+                        <td class="td-date">${date}</td>
+                        <td class="td-desc">${message}</td>
+                        <td class="td-vendor">${author}</td>
+                    </tr>
+                `;
+            });
+
+            logsBody.innerHTML = `
+                <div class="table-overflow-scroller">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Commit</th>
+                                <th>Date</th>
+                                <th>Message</th>
+                                <th>Author</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${rowsHTML}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        /* ---------------------------------------------------------
            ADMIN-ONLY MUTATIONS (all hit the backend; UI only
            re-renders once the backend confirms the change)
            --------------------------------------------------------- */
         function promptAddItem(divKey) {
             if (!authState.isAdmin) return;
+            openExpenseModal(divKey);
+        }
 
-            const descInput = prompt("Enter item description:", "");
-            if (!descInput) return;
-            const vendorInput = prompt("Enter Vendor / Material Source:", "");
-            const amountInput = parseInt(prompt("Enter expense amount (INR):", "0"), 10);
+        function promptEditItem(divKey, itemId) {
+            if (!authState.isAdmin) return;
+            const division = appState.divisions[divKey];
+            if (!division) return;
+            const item = division.ledger.find(i => i.id === itemId);
+            if (!item) return;
+            openExpenseModal(divKey, item);
+        }
 
-            if (isNaN(amountInput) || amountInput <= 0) {
-                alert("Please enter a valid positive numerical value.");
+        function openExpenseModal(divKey, itemToEdit = null) {
+            // Remove existing backdrop if any
+            closeExpenseModal();
+
+            const backdrop = document.createElement('div');
+            backdrop.className = 'modal-backdrop';
+            backdrop.id = 'expense-modal-backdrop';
+
+            const defaultDate = itemToEdit ? itemToEdit.date : new Date().toISOString().split('T')[0];
+            const defaultDesc = itemToEdit ? itemToEdit.desc : '';
+            const defaultVendor = itemToEdit ? itemToEdit.vendor : '';
+            const defaultAmount = itemToEdit ? itemToEdit.amount : '';
+            const isPendingSelected = !itemToEdit || itemToEdit.status === 'PENDING' ? 'selected' : '';
+            const isPaidSelected = itemToEdit && itemToEdit.status === 'PAID' ? 'selected' : '';
+
+            backdrop.innerHTML = `
+                <div class="modal-box" style="max-width: 26rem;">
+                    <h3>${itemToEdit ? 'Edit Expense Item' : 'Add Expense Item'}</h3>
+                    <form id="expense-modal-form" onsubmit="saveExpenseItem(event, '${divKey}', ${itemToEdit ? `'${itemToEdit.id}'` : 'null'})">
+                        <div style="margin-bottom: 0.75rem;">
+                            <label for="expense-date">Date</label>
+                            <input type="date" id="expense-date" required value="${defaultDate}" />
+                        </div>
+                        <div style="margin-bottom: 0.75rem;">
+                            <label for="expense-desc">Description</label>
+                            <input type="text" id="expense-desc" required placeholder="e.g. Chassis tubes" value="${defaultDesc.replace(/"/g, '&quot;')}" />
+                        </div>
+                        <div style="margin-bottom: 0.75rem;">
+                            <label for="expense-vendor">Vendor / Source</label>
+                            <input type="text" id="expense-vendor" required placeholder="e.g. Steel Tubes Co." value="${defaultVendor.replace(/"/g, '&quot;')}" />
+                        </div>
+                        <div style="margin-bottom: 0.75rem;">
+                            <label for="expense-amount">Amount (INR)</label>
+                            <input type="number" id="expense-amount" min="1" required placeholder="e.g. 50000" value="${defaultAmount}" />
+                        </div>
+                        <div style="margin-bottom: 1.25rem;">
+                            <label for="expense-status">Status</label>
+                            <select id="expense-status" required>
+                                <option value="PENDING" ${isPendingSelected}>PENDING</option>
+                                <option value="PAID" ${isPaidSelected}>PAID</option>
+                            </select>
+                        </div>
+                        <div class="modal-actions">
+                            <button type="button" class="btn-modal-cancel" onclick="closeExpenseModal()">Cancel</button>
+                            <button type="submit" class="btn-modal-submit">${itemToEdit ? 'Save Changes' : 'Add Item'}</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            document.body.appendChild(backdrop);
+
+            backdrop.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeExpenseModal();
+            });
+
+            const firstInput = document.getElementById('expense-date');
+            if (firstInput) firstInput.focus();
+        }
+
+        function closeExpenseModal() {
+            const backdrop = document.getElementById('expense-modal-backdrop');
+            if (backdrop) backdrop.remove();
+        }
+
+        async function saveExpenseItem(event, divKey, itemId = null) {
+            event.preventDefault();
+            if (!authState.isAdmin) return;
+
+            const dateVal = document.getElementById('expense-date').value.trim();
+            const descVal = document.getElementById('expense-desc').value.trim();
+            const vendorVal = document.getElementById('expense-vendor').value.trim();
+            const amountVal = parseInt(document.getElementById('expense-amount').value.trim(), 10);
+            const statusVal = document.getElementById('expense-status').value;
+
+            if (!dateVal || !descVal || !vendorVal || isNaN(amountVal) || amountVal <= 0 || !statusVal) {
+                showToast('All fields are required and amount must be positive.', true);
                 return;
             }
 
-            addLedgerItem(divKey, {
-                date: new Date().toISOString().split('T')[0],
-                desc: descInput,
-                vendor: vendorInput || "N/A",
-                amount: amountInput,
-                status: "PENDING"
-            });
+            const division = appState.divisions[divKey];
+            if (!division) return;
+
+            if (itemId) {
+                // Editing an existing item
+                const item = division.ledger.find(i => i.id === itemId);
+                if (!item) return;
+
+                const originalItem = { ...item };
+                item.date = dateVal;
+                item.desc = descVal;
+                item.vendor = vendorVal;
+                item.amount = amountVal;
+                item.status = statusVal;
+
+                recalculateGlobalSpend();
+
+                const auditMessage = `Updated ${item.id} (${division.title}): "${descVal}" - ${formatINR(amountVal)} (${statusVal})`;
+
+                try {
+                    await persistFullState(auditMessage);
+                    closeExpenseModal();
+                    rerenderCurrentView();
+                    showToast('Item updated.');
+                } catch (err) {
+                    console.error('Failed to update item:', err);
+                    Object.assign(item, originalItem);
+                    recalculateGlobalSpend();
+                    showToast('Could not save changes to server.', true);
+                }
+            } else {
+                // Adding a new item
+                const newItem = {
+                    date: dateVal,
+                    desc: descVal,
+                    vendor: vendorVal,
+                    amount: amountVal,
+                    status: statusVal
+                };
+
+                const prefix = divKey.slice(0, 2).toUpperCase();
+                const nextIndex = division.ledger.length + 1;
+                const generatedId = `${prefix}-${String(nextIndex).padStart(2, '0')}`;
+                const auditMessage = `Added ${generatedId} (${division.title}): "${descVal}" - ${formatINR(amountVal)} (${statusVal})`;
+
+                try {
+                    await addLedgerItem(divKey, newItem, auditMessage);
+                    closeExpenseModal();
+                } catch (err) {
+                    // Error is already logged and toast shown
+                }
+            }
         }
 
-        async function addLedgerItem(divKey, newItem) {
+        async function addLedgerItem(divKey, newItem, auditMessage = "") {
             const division = appState.divisions[divKey];
             const prefix = divKey.slice(0, 2).toUpperCase();
             const nextIndex = division.ledger.length + 1;
@@ -464,13 +814,93 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
             recalculateGlobalSpend();
 
             try {
-                await persistFullState();
+                await persistFullState(auditMessage);
                 rerenderCurrentView();
                 showToast('Item added.');
             } catch (err) {
                 console.error('Failed to add item:', err);
                 division.ledger.pop(); // roll back local change
                 recalculateGlobalSpend();
+                showToast('Could not save to server.', true);
+                throw err;
+            }
+        }
+
+        function openGlobalEditModal(key) {
+            closeGlobalEditModal();
+
+            const backdrop = document.createElement('div');
+            backdrop.className = 'modal-backdrop';
+            backdrop.id = 'global-edit-modal-backdrop';
+
+            let fieldLabel = '';
+            let defaultValue = 0;
+            if (key === 'expectedTotal') {
+                fieldLabel = 'Expected Total Cost (INR)';
+                defaultValue = appState.global.expectedTotal;
+            } else if (key === 'currentFunding') {
+                fieldLabel = 'Current Funding (INR)';
+                defaultValue = appState.global.currentFunding;
+            }
+
+            backdrop.innerHTML = `
+                <div class="modal-box" style="max-width: 24rem;">
+                    <h3>Edit Global Metric</h3>
+                    <form id="global-edit-form" onsubmit="saveGlobalValue(event, '${key}')">
+                        <div style="margin-bottom: 1.25rem;">
+                            <label for="global-value">${fieldLabel}</label>
+                            <input type="number" id="global-value" min="0" required value="${defaultValue}" />
+                        </div>
+                        <div class="modal-actions">
+                            <button type="button" class="btn-modal-cancel" onclick="closeGlobalEditModal()">Cancel</button>
+                            <button type="submit" class="btn-modal-submit">Save</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            document.body.appendChild(backdrop);
+
+            backdrop.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeGlobalEditModal();
+            });
+
+            const input = document.getElementById('global-value');
+            if (input) {
+                input.focus();
+                input.select();
+            }
+        }
+
+        function closeGlobalEditModal() {
+            const backdrop = document.getElementById('global-edit-modal-backdrop');
+            if (backdrop) backdrop.remove();
+        }
+
+        async function saveGlobalValue(event, key) {
+            event.preventDefault();
+            if (!authState.isAdmin) return;
+
+            const inputVal = parseInt(document.getElementById('global-value').value.trim(), 10);
+            if (isNaN(inputVal) || inputVal < 0) {
+                showToast('Please enter a valid non-negative number.', true);
+                return;
+            }
+
+            const originalVal = appState.global[key];
+            appState.global[key] = inputVal;
+
+            const label = key === 'expectedTotal' ? 'Expected Total Cost' : 'Current Funding';
+            const auditMessage = `Updated ${label} from ${formatINR(originalVal)} to ${formatINR(inputVal)}`;
+
+            try {
+                await persistFullState(auditMessage);
+                closeGlobalEditModal();
+                updateHeaderTotals();
+                rerenderCurrentView();
+                showToast('Global metric updated.');
+            } catch (err) {
+                console.error('Failed to update global metric:', err);
+                appState.global[key] = originalVal; // rollback
                 showToast('Could not save to server.', true);
             }
         }
@@ -486,8 +916,10 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
             item.status = previousStatus === 'PENDING' ? 'PAID' : 'PENDING';
             recalculateGlobalSpend();
 
+            const auditMessage = `Toggled status of ${item.id} (${division.title}) to ${item.status}`;
+
             try {
-                await persistFullState();
+                await persistFullState(auditMessage);
                 rerenderCurrentView();
             } catch (err) {
                 console.error('Failed to toggle status:', err);
@@ -508,8 +940,10 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
             const [removed] = division.ledger.splice(index, 1);
             recalculateGlobalSpend();
 
+            const auditMessage = `Deleted item ${removed.id} (${division.title}): "${removed.desc}" - ${formatINR(removed.amount)}`;
+
             try {
-                await persistFullState();
+                await persistFullState(auditMessage);
                 rerenderCurrentView();
                 showToast('Item removed.');
             } catch (err) {
@@ -539,6 +973,7 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
         window.addEventListener('DOMContentLoaded', async () => {
             await restoreAdminSession();
             renderAuthZone();
+            updateLogsTabVisibility();
             await fetchExpenseData();
             updateHeaderTotals();
             switchTab('overview');
