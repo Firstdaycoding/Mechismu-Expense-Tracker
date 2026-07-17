@@ -2,7 +2,7 @@
   "global": {
     "currentFunding": 188847,
     "expectedTotal": 894000,
-    "spent": 141400
+    "spent": 104400
   },
   "divisions": {
     "battery": {
@@ -109,7 +109,7 @@
           "date": "2026-07-17",
           "desc": "Chassis pipes",
           "id": "ST-02",
-          "status": "PAID",
+          "status": "PENDING",
           "vendor": "vendor"
         },
         {
