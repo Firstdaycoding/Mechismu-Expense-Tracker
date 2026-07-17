@@ -105,28 +105,20 @@
           "vendor": "Misc Hardware"
         },
         {
-          "date": "2026-07-13",
-          "desc": "Brake Assembly",
-          "vendor": "-",
-          "amount": 20000,
-          "status": "PENDING",
-          "id": "ST-04"
-        },
-        {
+          "amount": 40000,
           "date": "2026-07-13",
           "desc": "Bodywork",
-          "vendor": "-",
-          "amount": 40000,
+          "id": "ST-04",
           "status": "PENDING",
-          "id": "ST-04"
+          "vendor": "-"
         },
         {
+          "amount": 32000,
           "date": "2026-07-13",
           "desc": "Chassis Pipes",
-          "vendor": "-",
-          "amount": 32000,
+          "id": "ST-04",
           "status": "PENDING",
-          "id": "ST-04"
+          "vendor": "-"
         }
       ],
       "title": "Structures"
