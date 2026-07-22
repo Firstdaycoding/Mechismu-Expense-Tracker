@@ -2,7 +2,7 @@
   "global": {
     "currentFunding": 198846,
     "expectedTotal": 894000,
-    "spent": 191400
+    "spent": 491400
   },
   "divisions": {
     "battery": {
@@ -13,7 +13,7 @@
           "date": "2026-06-18",
           "desc": "Li ion Cells",
           "id": "BA-01",
-          "status": "PROCURED",
+          "status": "PAID",
           "vendor": "Molicel"
         },
         {
