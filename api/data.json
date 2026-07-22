@@ -11,10 +11,10 @@
         {
           "amount": 300000,
           "date": "2026-06-18",
-          "desc": "LiFePO4 Cells",
+          "desc": "Li ion Cells",
           "id": "BA-01",
           "status": "PENDING",
-          "vendor": "Lithium Store"
+          "vendor": "Molicel"
         },
         {
           "amount": 87000,
