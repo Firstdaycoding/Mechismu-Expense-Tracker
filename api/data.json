@@ -2,7 +2,7 @@
   "global": {
     "currentFunding": 198846,
     "expectedTotal": 894000,
-    "spent": 212400
+    "spent": 191400
   },
   "divisions": {
     "battery": {
@@ -57,7 +57,7 @@
           "date": "2026-06-14",
           "desc": "Shutdown Buttons",
           "id": "SA-01",
-          "status": "PAID",
+          "status": "PENDING",
           "vendor": "Element14"
         },
         {
