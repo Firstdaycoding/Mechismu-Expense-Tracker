@@ -1,8 +1,8 @@
 {
   "global": {
-    "currentFunding": 188847,
+    "currentFunding": 198846,
     "expectedTotal": 894000,
-    "spent": 129400
+    "spent": 191400
   },
   "divisions": {
     "battery": {
@@ -11,17 +11,17 @@
         {
           "amount": 300000,
           "date": "2026-06-18",
-          "desc": "LiFePO4 Cells",
+          "desc": "Li ion Cells",
           "id": "BA-01",
           "status": "PENDING",
-          "vendor": "Lithium Store"
+          "vendor": "Molicel"
         },
         {
           "amount": 87000,
           "date": "2026-06-19",
           "desc": "BMS Controller Board",
           "id": "BA-02",
-          "status": "PENDING",
+          "status": "PAID",
           "vendor": "Orion BMS"
         }
       ],
@@ -79,7 +79,7 @@
           "date": "2026-06-10",
           "desc": "Steering Rack",
           "id": "SS-01",
-          "status": "PAID",
+          "status": "PENDING",
           "vendor": "Custom Machine"
         },
         {
