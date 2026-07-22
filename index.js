@@ -53,6 +53,33 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
             }
         };
 
+        // Canonical status list used everywhere a status needs to be
+        // displayed, cycled, or validated against. Order matters: it
+        // defines both the dropdown order and the click-to-cycle order
+        // in toggleItemStatus().
+        //   PENDING    -> nothing committed yet
+        //   SPONSORED  -> a sponsor has committed to cover this item
+        //   PROCURED   -> item has been ordered/received, payment not yet settled
+        //   PAID       -> money has actually gone out the door
+        const STATUS_OPTIONS = ["PENDING", "SPONSORED", "PROCURED", "PAID"];
+
+        // Only PAID counts as money actually spent. Everything else
+        // (PENDING, SPONSORED, PROCURED) is still outstanding/pending
+        // from a cash-flow perspective.
+        function isPaidStatus(status) {
+            return status === 'PAID';
+        }
+
+        function statusBadgeClass(status) {
+            switch (status) {
+                case 'PAID': return 'paid-type';
+                case 'SPONSORED': return 'sponsored-type';
+                case 'PROCURED': return 'procured-type';
+                case 'PENDING':
+                default: return 'pending-type';
+            }
+        }
+
         const appState = {
             currentTab: 'overview',
             global: { expectedTotal: 0, currentFunding: 0, spent: 0 },
@@ -330,7 +357,10 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
 
             let breakdownHTML = '';
             for (const [key, div] of Object.entries(appState.divisions)) {
-                const paidAmt = div.ledger.filter(i => i.status === 'PAID').reduce((sum, i) => sum + i.amount, 0);
+                // "Paid" progress bar reflects money actually out the
+                // door (PAID only). SPONSORED/PROCURED items still show
+                // up under the division's own ledger with their own badges.
+                const paidAmt = div.ledger.filter(i => isPaidStatus(i.status)).reduce((sum, i) => sum + i.amount, 0);
                 const paidPercent = div.expectedCost > 0 ? Math.round((paidAmt / div.expectedCost) * 100) : 0;
 
                 breakdownHTML += `
@@ -438,8 +468,10 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
             }
 
             const totalExpected = data.expectedCost;
-            const spent = data.ledger.filter(i => i.status === 'PAID').reduce((sum, item) => sum + item.amount, 0);
-            const pending = data.ledger.filter(i => i.status === 'PENDING').reduce((sum, item) => sum + item.amount, 0);
+            const spent = data.ledger.filter(i => isPaidStatus(i.status)).reduce((sum, item) => sum + item.amount, 0);
+            // "Pending" here means anything not fully paid yet, which now
+            // includes PENDING, SPONSORED, and PROCURED items.
+            const pending = data.ledger.filter(i => !isPaidStatus(i.status)).reduce((sum, item) => sum + item.amount, 0);
             const itemCount = data.ledger.length;
             const paidRatio = totalExpected > 0 ? Math.round((spent / totalExpected) * 100) : 0;
 
@@ -448,9 +480,9 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
                 rowHTML = `<tr><td colspan="7" style="padding: 2rem; text-align: center; color: var(--text-muted);">No expenses logged yet for this division.</td></tr>`;
             } else {
                 data.ledger.forEach((item) => {
-                    const badgeClass = item.status === 'PAID' ? 'paid-type' : 'pending-type';
+                    const badgeClass = statusBadgeClass(item.status);
                     const statusBadge = authState.isAdmin
-                        ? `<span class="status-badge ${badgeClass} admin-clickable" onclick="toggleItemStatus('${divKey}', '${item.id}')" title="Click to toggle status">${item.status}</span>`
+                        ? `<span class="status-badge ${badgeClass} admin-clickable" onclick="toggleItemStatus('${divKey}', '${item.id}')" title="Click to cycle status">${item.status}</span>`
                         : `<span class="status-badge ${badgeClass}">${item.status}</span>`;
 
                     const actionsCell = authState.isAdmin
@@ -691,8 +723,14 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
             const defaultDesc = itemToEdit ? itemToEdit.desc : '';
             const defaultVendor = itemToEdit ? itemToEdit.vendor : '';
             const defaultAmount = itemToEdit ? itemToEdit.amount : '';
-            const isPendingSelected = !itemToEdit || itemToEdit.status === 'PENDING' ? 'selected' : '';
-            const isPaidSelected = itemToEdit && itemToEdit.status === 'PAID' ? 'selected' : '';
+            const currentStatus = itemToEdit ? itemToEdit.status : 'PENDING';
+
+            // Build the status <option> list from the single source of
+            // truth (STATUS_OPTIONS) so PENDING / SPONSORED / PROCURED /
+            // PAID always stay in sync with the rest of the app.
+            const statusOptionsHTML = STATUS_OPTIONS.map(s =>
+                `<option value="${s}" ${s === currentStatus ? 'selected' : ''}>${s}</option>`
+            ).join('');
 
             backdrop.innerHTML = `
                 <div class="modal-box" style="max-width: 26rem;">
@@ -717,8 +755,7 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
                         <div style="margin-bottom: 1.25rem;">
                             <label for="expense-status">Status</label>
                             <select id="expense-status" required>
-                                <option value="PENDING" ${isPendingSelected}>PENDING</option>
-                                <option value="PAID" ${isPaidSelected}>PAID</option>
+                                ${statusOptionsHTML}
                             </select>
                         </div>
                         <div class="modal-actions">
@@ -913,6 +950,10 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
             }
         }
 
+        // Cycles a ledger item's status through the canonical order:
+        // PENDING -> SPONSORED -> PROCURED -> PAID -> (back to) PENDING.
+        // Click-to-advance replaces the old binary PENDING/PAID toggle
+        // now that there are four stages to move through.
         async function toggleItemStatus(divKey, itemId) {
             if (!authState.isAdmin) return;
 
@@ -921,16 +962,18 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
             if (!item) return;
 
             const previousStatus = item.status;
-            item.status = previousStatus === 'PENDING' ? 'PAID' : 'PENDING';
+            const currentIndex = STATUS_OPTIONS.indexOf(previousStatus);
+            const nextIndex = currentIndex === -1 ? 0 : (currentIndex + 1) % STATUS_OPTIONS.length;
+            item.status = STATUS_OPTIONS[nextIndex];
             recalculateGlobalSpend();
 
-            const auditMessage = `Toggled status of ${item.id} (${division.title}) to ${item.status}`;
+            const auditMessage = `Changed status of ${item.id} (${division.title}) from ${previousStatus} to ${item.status}`;
 
             try {
                 await persistFullState(auditMessage);
                 rerenderCurrentView();
             } catch (err) {
-                console.error('Failed to toggle status:', err);
+                console.error('Failed to update status:', err);
                 item.status = previousStatus; // roll back
                 recalculateGlobalSpend();
                 showToast('Could not update status.', true);
@@ -963,12 +1006,14 @@ const API_BASE_URL = window.location.hostname === "127.0.0.1" || window.location
         }
 
         // Keeps global.spent in sync with PAID items across all divisions
-        // (mirrors what the original frontend-only version did).
+        // (mirrors what the original frontend-only version did). Only
+        // PAID counts as spent — SPONSORED and PROCURED are intermediate
+        // stages that don't move money yet.
         function recalculateGlobalSpend() {
             let runningSpent = 0;
             for (const div of Object.values(appState.divisions)) {
                 runningSpent += div.ledger
-                    .filter(i => i.status === 'PAID')
+                    .filter(i => isPaidStatus(i.status))
                     .reduce((sum, i) => sum + i.amount, 0);
             }
             appState.global.spent = runningSpent;
