@@ -315,6 +315,14 @@
           "amount": 2362,
           "status": "PENDING",
           "id": "SA-33"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "6-pin IC base 5x",
+          "vendor": "robu.in",
+          "amount": 17,
+          "status": "PENDING",
+          "id": "SA-34"
         }
       ],
       "title": "Safety Electronics"
