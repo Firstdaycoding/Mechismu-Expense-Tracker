@@ -93,60 +93,68 @@
           "vendor": "electronicspices.com"
         },
         {
+          "amount": 1050,
           "date": "2026-08-07",
           "desc": "Opamp 15x",
-          "vendor": "robu.in",
-          "amount": 1050,
+          "id": "SA-06",
           "status": "PENDING",
-          "id": "SA-06"
+          "vendor": "robu.in"
         },
         {
+          "amount": 676,
           "date": "2026-08-07",
           "desc": "Optocopler 25x",
-          "vendor": "in.rsdelivers",
-          "amount": 676,
+          "id": "SA-07",
           "status": "PENDING",
-          "id": "SA-07"
+          "vendor": "in.rsdelivers"
         },
         {
+          "amount": 270,
           "date": "2026-08-07",
           "desc": "NMOS 10x",
-          "vendor": "robu.in",
-          "amount": 270,
+          "id": "SA-08",
           "status": "PENDING",
-          "id": "SA-08"
+          "vendor": "robu.in"
         },
         {
+          "amount": 225,
           "date": "2026-08-07",
           "desc": "NOT GATE 7404 5x",
-          "vendor": "robu.in",
-          "amount": 225,
+          "id": "SA-09",
           "status": "PENDING",
-          "id": "SA-09"
+          "vendor": "robu.in"
         },
         {
+          "amount": 98,
           "date": "2026-08-07",
           "desc": "ABD GATE 7408 7x",
-          "vendor": "robu.in",
-          "amount": 98,
+          "id": "SA-10",
           "status": "PENDING",
-          "id": "SA-10"
+          "vendor": "robu.in"
         },
         {
+          "amount": 42,
           "date": "2026-08-07",
           "desc": "OR GATE 7432 3x",
-          "vendor": "robu.in",
-          "amount": 42,
+          "id": "SA-11",
           "status": "PENDING",
-          "id": "SA-11"
+          "vendor": "robu.in"
+        },
+        {
+          "amount": 65,
+          "date": "2026-08-07",
+          "desc": "GREEN LED (12V)",
+          "id": "SA-12",
+          "status": "PENDING",
+          "vendor": "robu.in"
         },
         {
           "date": "2026-08-07",
-          "desc": "GREEN LED (12V)",
+          "desc": "CD4040BE (12bit counter) - Microchip 5x",
           "vendor": "robu.in",
-          "amount": 65,
+          "amount": 210,
           "status": "PENDING",
-          "id": "SA-12"
+          "id": "SA-13"
         }
       ],
       "title": "Safety Electronics"
