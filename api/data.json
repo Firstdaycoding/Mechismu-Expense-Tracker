@@ -331,6 +331,14 @@
           "amount": 100,
           "status": "PENDING",
           "id": "SA-35"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "14-pin IC base 35x",
+          "vendor": "robu.in",
+          "amount": 315,
+          "status": "PENDING",
+          "id": "SA-36"
         }
       ],
       "title": "Safety Electronics"
