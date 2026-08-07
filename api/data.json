@@ -425,6 +425,14 @@
           "amount": 1,
           "status": "PENDING",
           "id": "SA-51"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "ETP grade Copper (C11000) sheet 15x",
+          "vendor": "Unknown",
+          "amount": 1,
+          "status": "PENDING",
+          "id": "SA-52"
         }
       ],
       "title": "Safety Electronics"
