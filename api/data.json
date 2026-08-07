@@ -131,6 +131,14 @@
           "amount": 98,
           "status": "PENDING",
           "id": "SA-10"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "OR GATE 7432 3x",
+          "vendor": "robu.in",
+          "amount": 42,
+          "status": "PENDING",
+          "id": "SA-11"
         }
       ],
       "title": "Safety Electronics"
