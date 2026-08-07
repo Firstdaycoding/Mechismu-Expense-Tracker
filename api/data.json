@@ -107,6 +107,14 @@
           "amount": 676,
           "status": "PENDING",
           "id": "SA-07"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "NMOS 10x",
+          "vendor": "robu.in",
+          "amount": 270,
+          "status": "PENDING",
+          "id": "SA-08"
         }
       ],
       "title": "Safety Electronics"
