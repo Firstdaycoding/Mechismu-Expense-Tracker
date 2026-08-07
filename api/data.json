@@ -251,6 +251,14 @@
           "amount": 160,
           "status": "PENDING",
           "id": "SA-25"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "22 AWG silicone wire kit",
+          "vendor": "robu.in",
+          "amount": 826,
+          "status": "PENDING",
+          "id": "SA-26"
         }
       ],
       "title": "Safety Electronics"
