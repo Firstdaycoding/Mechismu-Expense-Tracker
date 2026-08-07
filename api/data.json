@@ -291,6 +291,14 @@
           "amount": 1,
           "status": "PENDING",
           "id": "SA-30"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "STM32H7A3ZIT6Q (VCU)",
+          "vendor": "robu.in",
+          "amount": 4659,
+          "status": "PENDING",
+          "id": "SA-31"
         }
       ],
       "title": "Safety Electronics"
