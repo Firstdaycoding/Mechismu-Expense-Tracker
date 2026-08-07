@@ -323,6 +323,14 @@
           "amount": 17,
           "status": "PENDING",
           "id": "SA-34"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "8-pin IC base 20x",
+          "vendor": "robu.in",
+          "amount": 100,
+          "status": "PENDING",
+          "id": "SA-35"
         }
       ],
       "title": "Safety Electronics"
