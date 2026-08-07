@@ -275,6 +275,14 @@
           "amount": 760,
           "status": "PENDING",
           "id": "SA-28"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "PSC360 (PIHER) 2x",
+          "vendor": "digikey.in",
+          "amount": 12362,
+          "status": "PENDING",
+          "id": "SA-29"
         }
       ],
       "title": "Safety Electronics"
