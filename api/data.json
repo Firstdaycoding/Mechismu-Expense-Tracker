@@ -123,6 +123,14 @@
           "amount": 225,
           "status": "PENDING",
           "id": "SA-09"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "ABD GATE 7408 7x",
+          "vendor": "robu.in",
+          "amount": 98,
+          "status": "PENDING",
+          "id": "SA-10"
         }
       ],
       "title": "Safety Electronics"
