@@ -443,6 +443,14 @@
           "amount": 2098,
           "status": "PENDING",
           "id": "SA-49"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "DR25 Heat sink harness",
+          "vendor": "digikey.in",
+          "amount": 846,
+          "status": "PENDING",
+          "id": "SA-50"
         }
       ],
       "title": "Safety Electronics"
