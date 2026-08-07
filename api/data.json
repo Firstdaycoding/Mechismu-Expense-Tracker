@@ -171,6 +171,14 @@
           "amount": 855,
           "status": "PENDING",
           "id": "SA-15"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "NPN 5x",
+          "vendor": "robu.in",
+          "amount": 20,
+          "status": "PENDING",
+          "id": "SA-16"
         }
       ],
       "title": "Safety Electronics"
