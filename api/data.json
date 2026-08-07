@@ -387,6 +387,14 @@
           "amount": 364,
           "status": "PENDING",
           "id": "SA-42"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Molex 33012-2002",
+          "vendor": "in.rsdelivers",
+          "amount": 1692,
+          "status": "PENDING",
+          "id": "SA-43"
         }
       ],
       "title": "Safety Electronics"
