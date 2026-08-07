@@ -243,6 +243,14 @@
           "amount": 535,
           "status": "PENDING",
           "id": "SA-24"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "RTD button 2x",
+          "vendor": "elezo.com",
+          "amount": 160,
+          "status": "PENDING",
+          "id": "SA-25"
         }
       ],
       "title": "Safety Electronics"
