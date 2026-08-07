@@ -69,28 +69,28 @@
           "vendor": "Bender"
         },
         {
+          "amount": 2000,
           "date": "2026-08-07",
           "desc": "Resistor Kit",
-          "vendor": "robu.in",
-          "amount": 2000,
+          "id": "SA-03",
           "status": "PENDING",
-          "id": "SA-03"
+          "vendor": "robu.in"
         },
         {
+          "amount": 1000,
           "date": "2026-08-07",
           "desc": "Capacitor Kit",
-          "vendor": "robu.in",
-          "amount": 1000,
+          "id": "SA-04",
           "status": "PENDING",
-          "id": "SA-04"
+          "vendor": "robu.in"
         },
         {
+          "amount": 200,
           "date": "2026-08-07",
           "desc": "Red LED (12V)    2x",
-          "vendor": "Unknown",
-          "amount": 200,
+          "id": "SA-05",
           "status": "PENDING",
-          "id": "SA-05"
+          "vendor": "Unknown"
         }
       ],
       "title": "Safety Electronics"
