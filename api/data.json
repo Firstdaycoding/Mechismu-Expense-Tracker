@@ -537,6 +537,14 @@
           "amount": 1,
           "status": "PENDING",
           "id": "SA-65"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Discharge Relay",
+          "vendor": "Unknown",
+          "amount": 1,
+          "status": "PENDING",
+          "id": "SA-66"
         }
       ],
       "title": "Safety Electronics"
