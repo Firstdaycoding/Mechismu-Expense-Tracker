@@ -195,6 +195,14 @@
           "amount": 14,
           "status": "PENDING",
           "id": "SA-18"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Zener diode 10x",
+          "vendor": "robu.in",
+          "amount": 70,
+          "status": "PENDING",
+          "id": "SA-19"
         }
       ],
       "title": "Safety Electronics"
