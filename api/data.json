@@ -513,6 +513,14 @@
           "amount": 1,
           "status": "PENDING",
           "id": "SA-62"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Amphenol HVD connector",
+          "vendor": "Unknown",
+          "amount": 1,
+          "status": "PENDING",
+          "id": "SA-63"
         }
       ],
       "title": "Safety Electronics"
