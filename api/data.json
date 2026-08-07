@@ -67,6 +67,14 @@
           "id": "SA-02",
           "status": "PENDING",
           "vendor": "Bender"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Resistor Kit",
+          "vendor": "robu.in",
+          "amount": 2000,
+          "status": "PENDING",
+          "id": "SA-03"
         }
       ],
       "title": "Safety Electronics"
