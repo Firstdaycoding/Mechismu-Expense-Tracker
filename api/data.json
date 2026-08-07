@@ -61,14 +61,6 @@
           "vendor": "Element14"
         },
         {
-          "amount": 100000,
-          "date": "2026-06-15",
-          "desc": "Insulation Monitoring Device",
-          "id": "SA-02",
-          "status": "PENDING",
-          "vendor": "Bender"
-        },
-        {
           "amount": 2000,
           "date": "2026-08-07",
           "desc": "Resistor Kit",
