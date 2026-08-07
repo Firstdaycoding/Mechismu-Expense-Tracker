@@ -99,6 +99,14 @@
           "amount": 1050,
           "status": "PENDING",
           "id": "SA-06"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Optocopler 25x",
+          "vendor": "in.rsdelivers",
+          "amount": 676,
+          "status": "PENDING",
+          "id": "SA-07"
         }
       ],
       "title": "Safety Electronics"
