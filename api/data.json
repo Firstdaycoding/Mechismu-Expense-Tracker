@@ -307,6 +307,14 @@
           "amount": 4659,
           "status": "PENDING",
           "id": "SA-32"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Display for Dashboard",
+          "vendor": "robu.in",
+          "amount": 2362,
+          "status": "PENDING",
+          "id": "SA-33"
         }
       ],
       "title": "Safety Electronics"
