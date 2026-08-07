@@ -91,6 +91,14 @@
           "id": "SA-05",
           "status": "PENDING",
           "vendor": "electronicspices.com"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Opamp 15x",
+          "vendor": "robu.in",
+          "amount": 1050,
+          "status": "PENDING",
+          "id": "SA-06"
         }
       ],
       "title": "Safety Electronics"
