@@ -545,6 +545,14 @@
           "amount": 1,
           "status": "PENDING",
           "id": "SA-66"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Discharge Resistor 2x",
+          "vendor": "Unknown",
+          "amount": 1,
+          "status": "PENDING",
+          "id": "SA-67"
         }
       ],
       "title": "Safety Electronics"
