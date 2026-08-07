@@ -83,6 +83,14 @@
           "amount": 1000,
           "status": "PENDING",
           "id": "SA-04"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Red LED (12V)  2x",
+          "vendor": "Unknown",
+          "amount": 200,
+          "status": "PENDING",
+          "id": "SA-05"
         }
       ],
       "title": "Safety Electronics"
