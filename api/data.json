@@ -529,6 +529,14 @@
           "amount": 1,
           "status": "PENDING",
           "id": "SA-64"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "HV Shielded Cable",
+          "vendor": "Unknown",
+          "amount": 1,
+          "status": "PENDING",
+          "id": "SA-65"
         }
       ],
       "title": "Safety Electronics"
