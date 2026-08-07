@@ -259,6 +259,14 @@
           "amount": 826,
           "status": "PENDING",
           "id": "SA-26"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "14 AWG silicone wire - black 10x",
+          "vendor": "robu.in",
+          "amount": 660,
+          "status": "PENDING",
+          "id": "SA-27"
         }
       ],
       "title": "Safety Electronics"
