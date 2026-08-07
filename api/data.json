@@ -521,6 +521,14 @@
           "amount": 1,
           "status": "PENDING",
           "id": "SA-63"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "HV wire",
+          "vendor": "Unknown",
+          "amount": 1,
+          "status": "PENDING",
+          "id": "SA-64"
         }
       ],
       "title": "Safety Electronics"
