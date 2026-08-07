@@ -435,6 +435,14 @@
           "amount": 66,
           "status": "PENDING",
           "id": "SA-48"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Adhesive tape 2x",
+          "vendor": "digikey.in",
+          "amount": 2098,
+          "status": "PENDING",
+          "id": "SA-49"
         }
       ],
       "title": "Safety Electronics"
