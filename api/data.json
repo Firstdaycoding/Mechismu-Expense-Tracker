@@ -497,6 +497,14 @@
           "amount": 1,
           "status": "PENDING",
           "id": "SA-60"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Pre charge relay",
+          "vendor": "Unknown",
+          "amount": 1,
+          "status": "PENDING",
+          "id": "SA-61"
         }
       ],
       "title": "Safety Electronics"
