@@ -2,7 +2,7 @@
   "global": {
     "currentFunding": 198846,
     "expectedTotal": 894000,
-    "spent": 191400
+    "spent": 97000
   },
   "divisions": {
     "battery": {
@@ -30,14 +30,6 @@
     "other": {
       "expectedCost": 204000,
       "ledger": [
-        {
-          "amount": 94400,
-          "date": "2026-07-08",
-          "desc": "Competittion Registration Fees",
-          "id": "OT-01",
-          "status": "PAID",
-          "vendor": "Formula Bharat"
-        },
         {
           "amount": 10000,
           "date": "2026-07-08",
@@ -133,324 +125,324 @@
           "vendor": "robu.in"
         },
         {
+          "amount": 210,
           "date": "2026-08-07",
           "desc": "CD4040BE (12bit counter) - Microchip 5x",
-          "vendor": "robu.in",
-          "amount": 210,
+          "id": "SA-13",
           "status": "PENDING",
-          "id": "SA-13"
+          "vendor": "robu.in"
         },
         {
+          "amount": 210,
           "date": "2026-08-07",
           "desc": "CD4043BE (SR latch) - Microchip 5x",
-          "vendor": "robu.in",
-          "amount": 210,
+          "id": "SA-14",
           "status": "PENDING",
-          "id": "SA-14"
+          "vendor": "robu.in"
         },
         {
+          "amount": 855,
           "date": "2026-08-07",
           "desc": "MIC1557 (Timer)  5x",
-          "vendor": "robu.in",
-          "amount": 855,
+          "id": "SA-15",
           "status": "PENDING",
-          "id": "SA-15"
+          "vendor": "robu.in"
         },
         {
+          "amount": 20,
           "date": "2026-08-07",
           "desc": "NPN 5x",
-          "vendor": "robu.in",
-          "amount": 20,
+          "id": "SA-16",
           "status": "PENDING",
-          "id": "SA-16"
+          "vendor": "robu.in"
         },
         {
+          "amount": 1350,
           "date": "2026-08-07",
           "desc": "Relay (12V) 25x",
-          "vendor": "robu.in",
-          "amount": 1350,
+          "id": "SA-17",
           "status": "PENDING",
-          "id": "SA-17"
+          "vendor": "robu.in"
         },
         {
+          "amount": 14,
           "date": "2026-08-07",
           "desc": "Diode 7x",
-          "vendor": "robu.in",
-          "amount": 14,
+          "id": "SA-18",
           "status": "PENDING",
-          "id": "SA-18"
+          "vendor": "robu.in"
         },
         {
+          "amount": 70,
           "date": "2026-08-07",
           "desc": "Zener diode 10x",
-          "vendor": "robu.in",
-          "amount": 70,
+          "id": "SA-19",
           "status": "PENDING",
-          "id": "SA-19"
+          "vendor": "robu.in"
         },
         {
+          "amount": 423,
           "date": "2026-08-07",
           "desc": "12V-5V DC-DC isolated converter 3x",
-          "vendor": "robu.in",
-          "amount": 423,
+          "id": "SA-20",
           "status": "PENDING",
-          "id": "SA-20"
+          "vendor": "robu.in"
         },
         {
+          "amount": 425,
           "date": "2026-08-07",
           "desc": "5V-5V DC-DC converter 5x",
-          "vendor": "robu.in",
-          "amount": 425,
+          "id": "SA-21",
           "status": "PENDING",
-          "id": "SA-21"
+          "vendor": "robu.in"
         },
         {
+          "amount": 138,
           "date": "2026-08-07",
           "desc": "12V Buzzer 3x",
-          "vendor": "robu.in",
-          "amount": 138,
+          "id": "SA-22",
           "status": "PENDING",
-          "id": "SA-22"
+          "vendor": "robu.in"
         },
         {
+          "amount": 180,
           "date": "2026-08-07",
           "desc": "Potentiometer 10x",
-          "vendor": "robu.in",
-          "amount": 180,
+          "id": "SA-23",
           "status": "PENDING",
-          "id": "SA-23"
+          "vendor": "robu.in"
         },
         {
+          "amount": 535,
           "date": "2026-08-07",
           "desc": "SDC push-pull switches 5x",
-          "vendor": "elezo.com",
-          "amount": 535,
+          "id": "SA-24",
           "status": "PENDING",
-          "id": "SA-24"
+          "vendor": "elezo.com"
         },
         {
+          "amount": 160,
           "date": "2026-08-07",
           "desc": "RTD button 2x",
-          "vendor": "elezo.com",
-          "amount": 160,
+          "id": "SA-25",
           "status": "PENDING",
-          "id": "SA-25"
+          "vendor": "elezo.com"
         },
         {
+          "amount": 826,
           "date": "2026-08-07",
           "desc": "22 AWG silicone wire kit",
-          "vendor": "robu.in",
-          "amount": 826,
+          "id": "SA-26",
           "status": "PENDING",
-          "id": "SA-26"
+          "vendor": "robu.in"
         },
         {
+          "amount": 660,
           "date": "2026-08-07",
           "desc": "14 AWG silicone wire - black 10x",
-          "vendor": "robu.in",
-          "amount": 660,
+          "id": "SA-27",
           "status": "PENDING",
-          "id": "SA-27"
+          "vendor": "robu.in"
         },
         {
+          "amount": 760,
           "date": "2026-08-07",
           "desc": "14 AWG silicone wire - red 10x",
-          "vendor": "robu.in",
-          "amount": 760,
+          "id": "SA-28",
           "status": "PENDING",
-          "id": "SA-28"
+          "vendor": "robu.in"
         },
         {
+          "amount": 12362,
           "date": "2026-08-07",
           "desc": "PSC360 (PIHER) 2x",
-          "vendor": "digikey.in",
-          "amount": 12362,
+          "id": "SA-29",
           "status": "PENDING",
-          "id": "SA-29"
+          "vendor": "digikey.in"
         },
         {
+          "amount": 1,
           "date": "2026-08-07",
           "desc": "CAT-TRS0023",
-          "vendor": "Unknown",
-          "amount": 1,
+          "id": "SA-30",
           "status": "PENDING",
-          "id": "SA-30"
+          "vendor": "Unknown"
         },
         {
+          "amount": 4659,
           "date": "2026-08-07",
           "desc": "STM32H7A3ZIT6Q (VCU)",
-          "vendor": "robu.in",
-          "amount": 4659,
+          "id": "SA-31",
           "status": "PENDING",
-          "id": "SA-31"
+          "vendor": "robu.in"
         },
         {
+          "amount": 4659,
           "date": "2026-08-07",
           "desc": "STM32H743 (BMS)",
-          "vendor": "robu.in",
-          "amount": 4659,
+          "id": "SA-32",
           "status": "PENDING",
-          "id": "SA-32"
+          "vendor": "robu.in"
         },
         {
+          "amount": 2362,
           "date": "2026-08-07",
           "desc": "Display for Dashboard",
-          "vendor": "robu.in",
-          "amount": 2362,
+          "id": "SA-33",
           "status": "PENDING",
-          "id": "SA-33"
+          "vendor": "robu.in"
         },
         {
+          "amount": 17,
           "date": "2026-08-07",
           "desc": "6-pin IC base 5x",
-          "vendor": "robu.in",
-          "amount": 17,
+          "id": "SA-34",
           "status": "PENDING",
-          "id": "SA-34"
+          "vendor": "robu.in"
         },
         {
+          "amount": 100,
           "date": "2026-08-07",
           "desc": "8-pin IC base 20x",
-          "vendor": "robu.in",
-          "amount": 100,
+          "id": "SA-35",
           "status": "PENDING",
-          "id": "SA-35"
+          "vendor": "robu.in"
         },
         {
+          "amount": 315,
           "date": "2026-08-07",
           "desc": "14-pin IC base 35x",
-          "vendor": "robu.in",
-          "amount": 315,
+          "id": "SA-36",
           "status": "PENDING",
-          "id": "SA-36"
+          "vendor": "robu.in"
         },
         {
+          "amount": 260,
           "date": "2026-08-07",
           "desc": "Perfboard 4x",
-          "vendor": "amazon.com",
-          "amount": 260,
+          "id": "SA-37",
           "status": "PENDING",
-          "id": "SA-37"
+          "vendor": "amazon.com"
         },
         {
+          "amount": 85,
           "date": "2026-08-07",
           "desc": "Connectors",
-          "vendor": "robu.in",
-          "amount": 85,
+          "id": "SA-38",
           "status": "PENDING",
-          "id": "SA-38"
+          "vendor": "robu.in"
         },
         {
+          "amount": 39,
           "date": "2026-08-07",
           "desc": "AOD409",
-          "vendor": "robu.in",
-          "amount": 39,
+          "id": "SA-39",
           "status": "PENDING",
-          "id": "SA-39"
+          "vendor": "robu.in"
         },
         {
+          "amount": 189,
           "date": "2026-08-07",
           "desc": "Voltage sensor module",
-          "vendor": "robu.in",
-          "amount": 189,
+          "id": "SA-40",
           "status": "PENDING",
-          "id": "SA-40"
+          "vendor": "robu.in"
         },
         {
+          "amount": 58,
           "date": "2026-08-07",
           "desc": "DB9 connector (datalogger) 2x",
-          "vendor": "robu.in",
-          "amount": 58,
+          "id": "SA-41",
           "status": "PENDING",
-          "id": "SA-41"
+          "vendor": "robu.in"
         },
         {
+          "amount": 364,
           "date": "2026-08-07",
           "desc": "Molex 33472-4001 2x",
-          "vendor": "mouser.in",
-          "amount": 364,
+          "id": "SA-42",
           "status": "PENDING",
-          "id": "SA-42"
+          "vendor": "mouser.in"
         },
         {
+          "amount": 1692,
           "date": "2026-08-07",
           "desc": "Molex 33012-2002",
-          "vendor": "in.rsdelivers",
-          "amount": 1692,
+          "id": "SA-43",
           "status": "PENDING",
-          "id": "SA-43"
+          "vendor": "in.rsdelivers"
         },
         {
+          "amount": 412,
           "date": "2026-08-07",
           "desc": "Molex 33482-4001 3x",
-          "vendor": "mouser.in",
-          "amount": 412,
+          "id": "SA-44",
           "status": "PENDING",
-          "id": "SA-44"
+          "vendor": "mouser.in"
         },
         {
+          "amount": 1720,
           "date": "2026-08-07",
           "desc": "Molex 33000-0002",
-          "vendor": "in.rsdelivers",
-          "amount": 1720,
+          "id": "SA-45",
           "status": "PENDING",
-          "id": "SA-45"
+          "vendor": "in.rsdelivers"
         },
         {
+          "amount": 144,
           "date": "2026-08-07",
           "desc": "Housing (1327G17) 2x",
-          "vendor": "mouser.in",
-          "amount": 144,
+          "id": "SA-46",
           "status": "PENDING",
-          "id": "SA-46"
+          "vendor": "mouser.in"
         },
         {
+          "amount": 254,
           "date": "2026-08-07",
           "desc": "Terminal (262G1) 2x",
-          "vendor": "mouser.in",
-          "amount": 254,
+          "id": "SA-47",
           "status": "PENDING",
-          "id": "SA-47"
+          "vendor": "mouser.in"
         },
         {
+          "amount": 66,
           "date": "2026-08-07",
           "desc": "SD card reader 2x",
-          "vendor": "robu.in",
-          "amount": 66,
+          "id": "SA-48",
           "status": "PENDING",
-          "id": "SA-48"
+          "vendor": "robu.in"
         },
         {
+          "amount": 2098,
           "date": "2026-08-07",
           "desc": "Adhesive tape 2x",
-          "vendor": "digikey.in",
-          "amount": 2098,
+          "id": "SA-49",
           "status": "PENDING",
-          "id": "SA-49"
+          "vendor": "digikey.in"
         },
         {
+          "amount": 846,
           "date": "2026-08-07",
           "desc": "DR25 Heat sink harness",
-          "vendor": "digikey.in",
-          "amount": 846,
+          "id": "SA-50",
           "status": "PENDING",
-          "id": "SA-50"
+          "vendor": "digikey.in"
         },
         {
+          "amount": 4500,
           "date": "2026-08-07",
           "desc": "Digital vernier Calliper 2x",
-          "vendor": "indiamart.in",
-          "amount": 4500,
+          "id": "SA-49",
           "status": "PENDING",
-          "id": "SA-49"
+          "vendor": "indiamart.in"
         },
         {
+          "amount": 2300,
           "date": "2026-08-07",
           "desc": "Digital Screw Gauge",
-          "vendor": "indiamart.in",
-          "amount": 2300,
+          "id": "SA-50",
           "status": "PENDING",
-          "id": "SA-50"
+          "vendor": "indiamart.in"
         }
       ],
       "title": "Safety Electronics"
