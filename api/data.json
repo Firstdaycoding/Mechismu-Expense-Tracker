@@ -2,7 +2,7 @@
   "global": {
     "currentFunding": 198846,
     "expectedTotal": 894000,
-    "spent": 97000
+    "spent": 87000
   },
   "divisions": {
     "battery": {
@@ -29,16 +29,7 @@
     },
     "other": {
       "expectedCost": 204000,
-      "ledger": [
-        {
-          "amount": 10000,
-          "date": "2026-07-08",
-          "desc": "ESO Registration",
-          "id": "OT-02",
-          "status": "PAID",
-          "vendor": "Formula Bharat"
-        }
-      ],
+      "ledger": [],
       "title": "Other"
     },
     "safety": {
