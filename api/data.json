@@ -379,6 +379,14 @@
           "amount": 58,
           "status": "PENDING",
           "id": "SA-41"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Molex 33472-4001 2x",
+          "vendor": "mouser.in",
+          "amount": 364,
+          "status": "PENDING",
+          "id": "SA-42"
         }
       ],
       "title": "Safety Electronics"
