@@ -473,6 +473,14 @@
           "amount": 1,
           "status": "PENDING",
           "id": "SA-57"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Radlok receptacle 10x",
+          "vendor": "Unknown",
+          "amount": 1,
+          "status": "PENDING",
+          "id": "SA-58"
         }
       ],
       "title": "Safety Electronics"
