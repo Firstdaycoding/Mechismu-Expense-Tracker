@@ -75,6 +75,14 @@
           "amount": 2000,
           "status": "PENDING",
           "id": "SA-03"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Capacitor Kit",
+          "vendor": "robu.in",
+          "amount": 1000,
+          "status": "PENDING",
+          "id": "SA-04"
         }
       ],
       "title": "Safety Electronics"
