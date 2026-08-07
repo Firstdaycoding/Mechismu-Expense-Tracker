@@ -457,6 +457,14 @@
           "amount": 1,
           "status": "PENDING",
           "id": "SA-55"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Thermal paste/epoxy",
+          "vendor": "Unknown",
+          "amount": 1,
+          "status": "PENDING",
+          "id": "SA-56"
         }
       ],
       "title": "Safety Electronics"
