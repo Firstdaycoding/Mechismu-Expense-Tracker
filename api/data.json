@@ -187,6 +187,14 @@
           "amount": 1350,
           "status": "PENDING",
           "id": "SA-17"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Diode 7x",
+          "vendor": "robu.in",
+          "amount": 14,
+          "status": "PENDING",
+          "id": "SA-18"
         }
       ],
       "title": "Safety Electronics"
