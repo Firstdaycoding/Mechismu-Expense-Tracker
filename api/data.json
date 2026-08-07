@@ -435,6 +435,14 @@
           "amount": 846,
           "status": "PENDING",
           "id": "SA-50"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Digital vernier Calliper 2x",
+          "vendor": "indiamart.in",
+          "amount": 4500,
+          "status": "PENDING",
+          "id": "SA-49"
         }
       ],
       "title": "Safety Electronics"
