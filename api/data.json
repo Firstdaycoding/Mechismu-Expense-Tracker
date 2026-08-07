@@ -427,6 +427,14 @@
           "amount": 254,
           "status": "PENDING",
           "id": "SA-47"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "SD card reader 2x",
+          "vendor": "robu.in",
+          "amount": 66,
+          "status": "PENDING",
+          "id": "SA-48"
         }
       ],
       "title": "Safety Electronics"
