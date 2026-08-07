@@ -179,6 +179,14 @@
           "amount": 20,
           "status": "PENDING",
           "id": "SA-16"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Relay (12V) 25x",
+          "vendor": "robu.in",
+          "amount": 1350,
+          "status": "PENDING",
+          "id": "SA-17"
         }
       ],
       "title": "Safety Electronics"
