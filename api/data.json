@@ -441,6 +441,14 @@
           "amount": 1,
           "status": "PENDING",
           "id": "SA-53"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Thermistors (NTCM-10K-B3380) 200x",
+          "vendor": "Unknown",
+          "amount": 1,
+          "status": "PENDING",
+          "id": "SA-54"
         }
       ],
       "title": "Safety Electronics"
