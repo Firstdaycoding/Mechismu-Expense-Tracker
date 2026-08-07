@@ -505,6 +505,14 @@
           "amount": 1,
           "status": "PENDING",
           "id": "SA-61"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Pre-charge resistor",
+          "vendor": "Unknown",
+          "amount": 1,
+          "status": "PENDING",
+          "id": "SA-62"
         }
       ],
       "title": "Safety Electronics"
