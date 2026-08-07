@@ -29,16 +29,7 @@
     },
     "other": {
       "expectedCost": 204000,
-      "ledger": [
-        {
-          "date": "2026-08-07",
-          "desc": "Shutdown Buttons",
-          "vendor": "Custom Machine",
-          "amount": 1212,
-          "status": "PENDING",
-          "id": "OT-01"
-        }
-      ],
+      "ledger": [],
       "title": "Other"
     },
     "safety": {
