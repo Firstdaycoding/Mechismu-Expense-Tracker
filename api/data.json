@@ -433,6 +433,14 @@
           "amount": 1,
           "status": "PENDING",
           "id": "SA-52"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Molicel P-45B INR-21700 425x",
+          "vendor": "Unknown",
+          "amount": 1,
+          "status": "PENDING",
+          "id": "SA-53"
         }
       ],
       "title": "Safety Electronics"
