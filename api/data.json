@@ -419,6 +419,14 @@
           "amount": 144,
           "status": "PENDING",
           "id": "SA-46"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Terminal (262G1) 2x",
+          "vendor": "mouser.in",
+          "amount": 254,
+          "status": "PENDING",
+          "id": "SA-47"
         }
       ],
       "title": "Safety Electronics"
