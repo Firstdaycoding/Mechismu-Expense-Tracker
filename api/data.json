@@ -115,6 +115,14 @@
           "amount": 270,
           "status": "PENDING",
           "id": "SA-08"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "NOT GATE 7404 5x",
+          "vendor": "robu.in",
+          "amount": 225,
+          "status": "PENDING",
+          "id": "SA-09"
         }
       ],
       "title": "Safety Electronics"
