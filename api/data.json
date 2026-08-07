@@ -561,6 +561,14 @@
           "amount": 1,
           "status": "PENDING",
           "id": "SA-68"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "G10 / FR4",
+          "vendor": "Unknown",
+          "amount": 1,
+          "status": "PENDING",
+          "id": "SA-69"
         }
       ],
       "title": "Safety Electronics"
