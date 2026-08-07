@@ -203,6 +203,14 @@
           "amount": 70,
           "status": "PENDING",
           "id": "SA-19"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "12V-5V DC-DC isolated converter 3x",
+          "vendor": "robu.in",
+          "amount": 423,
+          "status": "PENDING",
+          "id": "SA-20"
         }
       ],
       "title": "Safety Electronics"
