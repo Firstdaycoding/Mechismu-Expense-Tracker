@@ -53,14 +53,6 @@
       "expectedCost": 121000,
       "ledger": [
         {
-          "amount": 21000,
-          "date": "2026-06-14",
-          "desc": "Shutdown Buttons",
-          "id": "SA-01",
-          "status": "PENDING",
-          "vendor": "Element14"
-        },
-        {
           "amount": 2000,
           "date": "2026-08-07",
           "desc": "Resistor Kit",
