@@ -443,6 +443,14 @@
           "amount": 4500,
           "status": "PENDING",
           "id": "SA-49"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Digital Screw Gauge",
+          "vendor": "indiamart.in",
+          "amount": 2300,
+          "status": "PENDING",
+          "id": "SA-50"
         }
       ],
       "title": "Safety Electronics"
