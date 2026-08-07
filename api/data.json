@@ -219,6 +219,14 @@
           "amount": 425,
           "status": "PENDING",
           "id": "SA-21"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "12V Buzzer 3x",
+          "vendor": "robu.in",
+          "amount": 138,
+          "status": "PENDING",
+          "id": "SA-22"
         }
       ],
       "title": "Safety Electronics"
