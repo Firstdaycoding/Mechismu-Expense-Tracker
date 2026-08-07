@@ -347,6 +347,14 @@
           "amount": 260,
           "status": "PENDING",
           "id": "SA-37"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Connectors",
+          "vendor": "robu.in",
+          "amount": 85,
+          "status": "PENDING",
+          "id": "SA-38"
         }
       ],
       "title": "Safety Electronics"
