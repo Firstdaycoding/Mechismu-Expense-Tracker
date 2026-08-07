@@ -299,6 +299,14 @@
           "amount": 4659,
           "status": "PENDING",
           "id": "SA-31"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "STM32H743 (BMS)",
+          "vendor": "robu.in",
+          "amount": 4659,
+          "status": "PENDING",
+          "id": "SA-32"
         }
       ],
       "title": "Safety Electronics"
