@@ -553,6 +553,14 @@
           "amount": 1,
           "status": "PENDING",
           "id": "SA-67"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Amphenol UPC Series",
+          "vendor": "Unknown",
+          "amount": 1,
+          "status": "PENDING",
+          "id": "SA-68"
         }
       ],
       "title": "Safety Electronics"
