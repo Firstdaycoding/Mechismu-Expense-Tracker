@@ -235,6 +235,14 @@
           "amount": 180,
           "status": "PENDING",
           "id": "SA-23"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "SDC push-pull switches 5x",
+          "vendor": "elezo.com",
+          "amount": 535,
+          "status": "PENDING",
+          "id": "SA-24"
         }
       ],
       "title": "Safety Electronics"
