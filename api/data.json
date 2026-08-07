@@ -363,6 +363,14 @@
           "amount": 39,
           "status": "PENDING",
           "id": "SA-39"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Voltage sensor module",
+          "vendor": "robu.in",
+          "amount": 189,
+          "status": "PENDING",
+          "id": "SA-40"
         }
       ],
       "title": "Safety Electronics"
