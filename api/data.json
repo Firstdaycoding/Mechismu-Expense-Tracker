@@ -411,6 +411,14 @@
           "amount": 1720,
           "status": "PENDING",
           "id": "SA-45"
+        },
+        {
+          "date": "2026-08-07",
+          "desc": "Housing (1327G17) 2x",
+          "vendor": "mouser.in",
+          "amount": 144,
+          "status": "PENDING",
+          "id": "SA-46"
         }
       ],
       "title": "Safety Electronics"
